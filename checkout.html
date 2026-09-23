@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛒</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <link href="css/responsive.css" rel="stylesheet">
+
+  <title>Checkout — NANA MINI MART</title>
+  <meta name="description" content="Complete your order details and confirm your order on WhatsApp.">
+</head>
+<body>
+<div class="announce-bar">
+  <i class="bi bi-truck"></i>Fresh Products&nbsp;&nbsp;•&nbsp;&nbsp;<i class="bi bi-tag"></i>Best Prices&nbsp;&nbsp;•&nbsp;&nbsp;<i class="bi bi-lightning-charge"></i>Fast Delivery
+</div>
+
+<nav class="nana-navbar" id="mainNavbar">
+  <div class="container">
+    <nav class="navbar navbar-expand-lg p-0">
+      <div class="container-fluid p-0">
+        <a class="nana-logo" href="index.html">
+          <span class="logo-icon"><i class="bi bi-basket3-fill"></i></span>
+          <span>NANA MINI MART<small>FRESH • DAILY • AFFORDABLE</small></span>
+        </a>
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navContent" aria-label="Toggle navigation">
+          <i class="bi bi-list fs-1"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navContent">
+          <ul class="navbar-nav mx-auto align-items-lg-center">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="shop.html">Shop</a></li>
+            <li class="nav-item"><a class="nav-link" href="categories.html">Categories</a></li>
+            <li class="nav-item"><a class="nav-link" href="offers.html">Offers</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          </ul>
+
+          <form class="nav-search-box d-none d-lg-block me-3" id="navSearchForm" style="width:220px;">
+            <input type="search" class="form-control" id="navSearchInput" placeholder="Search products...">
+            <button type="submit" aria-label="Search"><i class="bi bi-search"></i></button>
+          </form>
+
+          <div class="mobile-only-row d-lg-none mb-2">
+            <form class="nav-search-box" id="navSearchFormMobile">
+              <input type="search" class="form-control" id="navSearchInputMobile" placeholder="Search products...">
+              <button type="submit" aria-label="Search"><i class="bi bi-search"></i></button>
+            </form>
+          </div>
+
+          <div class="nav-icons nav-icons-desktop d-none d-lg-flex">
+            <span id="authNavSlot"></span>
+            <a href="cart.html" class="nav-icon-link" aria-label="Wishlist" title="Wishlist" style="display:none"></a>
+            <a href="cart.html#wishlist" class="nav-icon-link" title="Wishlist"><i class="bi bi-heart"></i><span class="counter-badge wishlist-counter">0</span></a>
+            <a href="cart.html" class="nav-icon-link" title="Cart"><i class="bi bi-cart3"></i><span class="counter-badge cart-counter">0</span></a>
+          </div>
+
+          <div class="mobile-only-row d-lg-none">
+            <div class="mobile-auth-row">
+              <a href="cart.html#wishlist" class="nav-icon-link" title="Wishlist"><i class="bi bi-heart"></i><span class="counter-badge wishlist-counter">0</span></a>
+              <a href="cart.html" class="nav-icon-link" title="Cart"><i class="bi bi-cart3"></i><span class="counter-badge cart-counter">0</span></a>
+              <span id="authNavSlotMobile"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+</nav>
+
+<div class="page-banner">
+  <div class="container">
+    <h1>Checkout</h1>
+    <nav aria-label="breadcrumb"><ol class="breadcrumb justify-content-center"><li class="breadcrumb-item"><a href="index.html">Home</a></li><li class="breadcrumb-item"><a href="cart.html">Cart</a></li><li class="breadcrumb-item active">Checkout</li></ol></nav>
+  </div>
+</div>
+
+<section class="section-pad" style="padding-top:36px;">
+  <div class="container">
+    <div id="checkoutEmptyState" style="display:none;">
+      <div class="empty-state">
+        <i class="bi bi-bag-x"></i>
+        <h4>Your cart is empty.</h4>
+        <p class="text-muted">Add some products before checking out.</p>
+        <a href="shop.html" class="btn btn-nana mt-2">Continue Shopping</a>
+      </div>
+    </div>
+
+    <div class="row g-4" id="checkoutContent">
+      <div class="col-lg-7">
+        <form id="checkoutForm" novalidate>
+          <div class="checkout-step">
+            <h5 class="mb-3"><i class="bi bi-person-fill me-2" style="color:var(--nana-green);"></i>Customer Information</h5>
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label">Full Name *</label>
+                <input type="text" class="form-control" id="custName" required>
+                <div class="invalid-feedback">Please enter your full name.</div>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Phone Number *</label>
+                <input type="tel" class="form-control" id="custPhone" placeholder="03XXXXXXXXX" required>
+                <div class="invalid-feedback">Please enter a valid Pakistani phone number.</div>
+              </div>
+              <div class="col-md-12">
+                <label class="form-label">Email *</label>
+                <input type="email" class="form-control" id="custEmail" required>
+                <div class="invalid-feedback">Please enter a valid email address.</div>
+              </div>
+              <div class="col-md-12">
+                <label class="form-label">Complete Address *</label>
+                <textarea class="form-control" id="custAddress" rows="2" required></textarea>
+                <div class="invalid-feedback">Please enter your complete address.</div>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">City *</label>
+                <input type="text" class="form-control" id="custCity" required>
+                <div class="invalid-feedback">Please enter your city.</div>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Area *</label>
+                <input type="text" class="form-control" id="custArea" required>
+                <div class="invalid-feedback">Please enter your area.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="checkout-step">
+            <h5 class="mb-3"><i class="bi bi-truck me-2" style="color:var(--nana-green);"></i>Delivery Option</h5>
+            <div class="row g-3">
+              <div class="col-md-6">
+                <div class="delivery-option active" data-value="Standard Delivery" data-fee="150">
+                  <div class="form-check">
+                    <input class="form-check-input delivery-radio" type="radio" name="delivery" id="deliveryStandard" checked>
+                    <label class="form-check-label fw-semibold" for="deliveryStandard">Standard Delivery</label>
+                  </div>
+                  <p class="text-muted small mb-0 ms-4">30–60 minutes • Rs. 150</p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="delivery-option" data-value="Express Delivery" data-fee="300">
+                  <div class="form-check">
+                    <input class="form-check-input delivery-radio" type="radio" name="delivery" id="deliveryExpress">
+                    <label class="form-check-label fw-semibold" for="deliveryExpress">Express Delivery</label>
+                  </div>
+                  <p class="text-muted small mb-0 ms-4">15–20 minutes • Rs. 300</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="checkout-step">
+            <h5 class="mb-3"><i class="bi bi-credit-card-fill me-2" style="color:var(--nana-green);"></i>Payment Method</h5>
+            <div class="row g-3">
+              <div class="col-md-6">
+                <div class="pay-option active" data-value="Cash on Delivery">
+                  <div class="form-check">
+                    <input class="form-check-input pay-radio" type="radio" name="payment" id="payCOD" checked>
+                    <label class="form-check-label fw-semibold" for="payCOD">Cash on Delivery</label>
+                  </div>
+                  <p class="text-muted small mb-0 ms-4">Pay when your order arrives.</p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="pay-option" data-value="Bank Transfer">
+                  <div class="form-check">
+                    <input class="form-check-input pay-radio" type="radio" name="payment" id="payBank">
+                    <label class="form-check-label fw-semibold" for="payBank">Bank Transfer</label>
+                  </div>
+                  <p class="text-muted small mb-0 ms-4">Transfer details shared on WhatsApp.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="col-lg-5">
+        <div class="summary-card">
+          <h5 class="mb-3">Order Summary</h5>
+          <div id="checkoutItemsList" class="mb-3"></div>
+          <div class="summary-row"><span>Subtotal</span><span id="coSubtotal">Rs. 0</span></div>
+          <div class="summary-row"><span>Delivery Fee</span><span id="coDelivery">Rs. 0</span></div>
+          <div class="summary-row total"><span>Grand Total</span><span id="coTotal">Rs. 0</span></div>
+          <button class="btn btn-whatsapp w-100 mt-3" id="confirmWhatsappBtn"><i class="bi bi-whatsapp"></i> CONFIRM ORDER ON WHATSAPP</button>
+          <a href="cart.html" class="btn btn-outline-nana w-100 mt-2">Back to Cart</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-4 col-md-6">
+        <a class="nana-logo mb-3 d-inline-flex" href="index.html">
+          <span class="logo-icon"><i class="bi bi-basket3-fill"></i></span>
+          <span style="color:#fff">NANA MINI MART</span>
+        </a>
+        <p class="mt-3" style="font-size:.9rem;">Your trusted neighborhood mini mart — fresh groceries, daily essentials and quality products delivered with care.</p>
+        <div class="social-icons mt-3">
+          <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="https://wa.me/923181016900" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+          <a href="https://twitter.com" target="_blank" rel="noopener" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-6 col-6">
+        <h6>Quick Links</h6>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="offers.html">Offers</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-2 col-md-6 col-6">
+        <h6>Categories</h6>
+        <ul>
+          <li><a href="shop.html?category=grocery">Grocery</a></li>
+          <li><a href="shop.html?category=beverages">Beverages</a></li>
+          <li><a href="shop.html?category=dairy">Dairy</a></li>
+          <li><a href="shop.html?category=fruits">Fruits</a></li>
+          <li><a href="categories.html">View All</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <h6>Customer Support</h6>
+        <div class="footer-contact-item"><i class="bi bi-geo-alt-fill"></i><span>Shop #12, Main Boulevard, Karachi, Pakistan</span></div>
+        <div class="footer-contact-item"><i class="bi bi-telephone-fill"></i><span>0318-1016900</span></div>
+        <div class="footer-contact-item"><i class="bi bi-envelope-fill"></i><span>support@nanaminimart.com</span></div>
+        <div class="footer-contact-item"><i class="bi bi-whatsapp"></i><a href="https://wa.me/923181016900" target="_blank" rel="noopener">Chat on WhatsApp</a></div>
+      </div>
+    </div>
+
+    <div class="row mt-4">
+      <div class="col-12">
+        <div class="p-4" style="background:rgba(255,255,255,.06); border-radius:16px;">
+          <div class="row align-items-center g-3">
+            <div class="col-md-5">
+              <h6 class="mb-1">Get Exclusive Offers & Updates</h6>
+              <p class="mb-0" style="font-size:.85rem;">Subscribe to our newsletter for the best deals.</p>
+            </div>
+            <div class="col-md-7">
+              <form class="newsletter-form-el d-flex gap-2 flex-wrap flex-md-nowrap justify-content-md-end">
+                <input type="email" class="newsletter-email-el form-control" placeholder="Enter your email" required style="border-radius:50px; max-width:260px;">
+                <button type="submit" class="btn btn-orange text-nowrap">Subscribe</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      &copy; <span id="footerYear"></span> NANA MINI MART. All rights reserved. | Frontend demo project — WhatsApp ordering for real checkout.
+    </div>
+  </div>
+</footer>
+
+<button class="back-to-top" id="backToTop" aria-label="Back to top"><i class="bi bi-arrow-up"></i></button>
+
+<div id="toast-container"></div>
+
+<script>document.getElementById("footerYear").textContent = new Date().getFullYear();</script>
+<script>
+  window.addEventListener("scroll", () => {
+    document.getElementById("backToTop").classList.toggle("show", window.scrollY > 400);
+  });
+  document.getElementById("backToTop").addEventListener("click", () => window.scrollTo({top:0, behavior:"smooth"}));
+  // Fade-up on scroll
+  const fadeEls = document.querySelectorAll(".fade-up");
+  if ("IntersectionObserver" in window && fadeEls.length){
+    const obs = new IntersectionObserver((entries)=>{
+      entries.forEach(en => { if(en.isIntersecting){ en.target.classList.add("in-view"); obs.unobserve(en.target);} });
+    }, {threshold:.15});
+    fadeEls.forEach(el => obs.observe(el));
+  }
+</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/products.js"></script>
+  <script src="js/app.js"></script>
+
+  <script src="js/checkout.js"></script>
+</body>
+</html>

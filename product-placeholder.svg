@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800">
+<rect width="800" height="800" fill="#f3f4f6"/>
+<circle cx="400" cy="320" r="125" fill="#d1d5db"/>
+<path d="M180 650c35-125 120-190 220-190s185 65 220 190" fill="#9ca3af"/>
+<text x="400" y="735" text-anchor="middle" font-family="Arial,sans-serif" font-size="34" fill="#374151">NANA MINI MART</text>
+</svg>

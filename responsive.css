@@ -1,0 +1,93 @@
+/* ==========================================================================
+   NANA MINI MART — responsive.css
+   Breakpoints: 1920 / 1440 / 1200 / 1024 / 768 / 576 / 425 / 375 / 320
+   ========================================================================== */
+
+/* Large desktop refinements */
+@media (min-width:1440px){
+  .container{max-width:1340px;}
+  .hero h1{font-size:3.2rem;}
+}
+
+/* ≤1200px : laptop */
+@media (max-width:1200px){
+  .product-grid{grid-template-columns:repeat(3,1fr);}
+}
+
+/* ≤1024px : tablet landscape */
+@media (max-width:1024px){
+  .hero h1{font-size:2.4rem;}
+  .section-pad{padding:54px 0;}
+  .summary-card{position:static;}
+}
+
+/* ≤991px : bootstrap lg — collapse nav */
+@media (max-width:991.98px){
+  .nana-navbar .navbar-collapse{background:#fff; margin-top:14px; padding:16px; border-radius:14px; box-shadow:var(--shadow-md);}
+  .nana-navbar .nav-link{margin:4px 0; border-bottom:none; padding:10px 4px !important;}
+  .nav-search-box{margin:12px 0;}
+  .nav-icons-desktop{display:none !important;}
+  .mobile-auth-row{display:flex; align-items:center; gap:10px; padding-top:10px; border-top:1px solid #eee; margin-top:8px;}
+}
+@media (min-width:992px){
+  .mobile-only-row{display:none !important;}
+}
+
+/* ≤768px : tablet portrait */
+@media (max-width:768px){
+  .product-grid{grid-template-columns:repeat(2,1fr);}
+  .hero{padding:44px 0; text-align:center;}
+  .hero-visual{margin-top:30px;}
+  .section-title h2{font-size:1.7rem;}
+  .newsletter-section{padding:34px 20px;}
+  .newsletter-section form{flex-direction:column;}
+  .newsletter-section input{max-width:100%;}
+  .auth-card{padding:30px 22px;}
+  .cart-item{flex-wrap:wrap;}
+  .page-banner h1{font-size:1.5rem;}
+  .shop-sidebar{margin-bottom:22px;}
+}
+
+/* ≤576px : large mobile */
+@media (max-width:576px){
+  .product-grid{grid-template-columns:repeat(2,1fr); gap:12px;}
+  .hero h1{font-size:1.85rem;}
+  .hero p.lead{font-size:.98rem;}
+  .btn{padding:9px 16px; font-size:.9rem;}
+  .section-pad{padding:40px 0;}
+  .offer-banner{padding:24px;}
+  .cart-item img{width:64px; height:64px;}
+  .product-card-body{padding:12px;}
+  .current-price{font-size:.96rem;}
+  .announce-bar{font-size:.72rem; padding:6px;}
+  .back-to-top{width:40px; height:40px; bottom:16px; right:16px;}
+}
+
+/* ≤425px : mobile */
+@media (max-width:425px){
+  .product-grid{grid-template-columns:repeat(2,1fr); gap:10px;}
+  .nana-logo{font-size:1.2rem;}
+  .nana-logo .logo-icon{width:38px; height:38px; font-size:1.1rem;}
+  .step-card, .feature-card{padding:18px 10px;}
+  .summary-card{padding:18px;}
+  .checkout-step{padding:18px;}
+}
+
+/* ≤375px : small mobile */
+@media (max-width:375px){
+  .hero h1{font-size:1.6rem;}
+  .product-grid{grid-template-columns:1fr 1fr; gap:8px;}
+  .section-title h2{font-size:1.4rem;}
+}
+
+/* ≤320px : smallest supported */
+@media (max-width:320px){
+  .container{padding-left:12px; padding-right:12px;}
+  .product-grid{grid-template-columns:1fr; }
+  .auth-card{padding:22px 14px;}
+  .hero h1{font-size:1.4rem;}
+}
+
+/* Prevent any horizontal overflow globally */
+html, body{max-width:100%; overflow-x:hidden;}
+img, video{max-width:100%; height:auto;}
